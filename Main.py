@@ -1,4 +1,4 @@
-# IMAGE PROCESSING PROJECT GUI IMPLEMENTATION
+# IMAGE PROCESSING PROJECT GUI IMPLEMENTATION (Restored Layout)
 # =========================================================
 from tkinter import *
 from tkinter import filedialog, ttk
@@ -141,23 +141,11 @@ def apply_hough_circles():
     apply_filter_and_display(result)
 
 # =========================================================
-# GLOBAL TRANSFORMS SECTION
-f4 = Frame(width='700', height='160', bg='gray')
-f4.place(x=0, y=450)
-Label(f4, text='GLOBAL TRANSFORM', fg='white', bg='grey', font='8').place(x=30, y=10)
-
-Button(f4, text='LINE DETECTION USING HOUGH TRANSFORM', fg='white', bg='black', width='37', command=apply_hough_lines).place(x=30, y=50)
-Button(f4, text='CIRCLE DETECTION USING HOUGH TRANSFORM', fg='white', bg='black', width='37', command=apply_hough_circles).place(x=30, y=90)
-
-Label(f4, text='MORPHOLOGICAL OP', fg='white', bg='grey', font='5').place(x=310, y=10)
-Button(f4, text='LOW PASS FILTER', fg='white', bg='black', width='25', command=apply_low_pass).place(x=310, y=30)
-Button(f4, text='HIGH PASS FILTER', fg='white', bg='black', width='25', command=apply_high_pass).place(x=310, y=60)
-Button(f4, text='MEDIAN FILTER(grey image)', fg='white', bg='black', width='25', command=apply_median).place(x=310, y=90)
-Button(f4, text='AVERAGE FILTER', fg='white', bg='black', width='25', command=apply_average).place(x=310, y=120)
-
-Label(f4, text='CHOOSE TYPE OF KERNEL', fg='white', bg='grey').place(x=500, y=40)
-choose_kernel = ttk.Combobox(f4, value=('3×3', '5×5', '7×7'), state='readonly')
-choose_kernel.place(x=500, y=60)
+# KERNEL DROPDOWN SETUP
+kernel_size_label = Label(text='CHOOSE TYPE OF KERNEL', fg='white', bg='grey')
+kernel_size_label.place(x=1010, y=490)
+choose_kernel = ttk.Combobox(win, value=('3×3', '5×5', '7×7'), state='readonly')
+choose_kernel.place(x=1010, y=510)
 choose_kernel.set('3×3')
 
 # =========================================================
@@ -180,23 +168,3 @@ Button(f5, text='EXIT', fg='white', bg='black', width='20', command=exit_app).pl
 
 # =========================================================
 win.mainloop()
-
-
-All remaining functionality is now implemented:
-
-Local filters, edge detection, and global transforms (Hough lines & circles) display results in display3.
-
-The kernel size dropdown (choose_kernel) is active and used across all relevant filters.
-
-Filters automatically adjust behavior based on the selected kernel size.
-
-
-You're ready to run a full-featured image processing GUI. Let me know if you'd like to:
-
-Add reset to original or undo
-
-Enable saving preview results
-
-Support batch image processing or more filters
-
-
